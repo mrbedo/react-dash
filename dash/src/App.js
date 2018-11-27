@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import socketIOClient from "socket.io-client";
+import Ticker from './components/Ticker'
 
 class App extends Component {
 
@@ -29,9 +30,6 @@ class App extends Component {
 
 			// Subscribe to topics (i.e. appl,fb,aig+)
 			socket.emit('subscribe', 'snap,fb,goog')
-  
-			// Unsubscribe from topics (i.e. aig+)
-			//socket.emit('unsubscribe', 'aig+')
   		})
 	}
 
@@ -56,7 +54,10 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<b>{data.symbol}</b> {data.lastSalePrice} {data.lastUpdated}
+				<Ticker
+					symbol={data.symbol}
+					lastPrice={data.lastSalePrice}
+					lastUpdated={data.lastUpdated}/>
 			</div>
 		);
 	}
