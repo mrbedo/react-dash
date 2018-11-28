@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import './App.css';
-import TickerList from './components/TickerList';
+import React, { Component } from "react";
+import "./App.css";
+import TickerList from "./components/TickerList";
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -17,7 +16,8 @@ class App extends Component {
       <div className="App">
         <TickerList
           tickers={this.state.tickers}
-          endpoint={this.state.endpoint}/>
+          endpoint={this.state.endpoint}
+        />
       </div>
     );
   }
