@@ -9,10 +9,10 @@ class Ticker extends React.Component {
   render() {
     const lastUpdated = this.toTime(this.props.lastUpdated);
     return (
-      <div className="Ticker">
-        <span class="symbol">{this.props.symbol}</span>
-        <span>{this.props.lastPrice}</span>
-        <span>{lastUpdated}</span>
+      <div className="symbol-container">
+        <div class="symbol Font-term">{this.props.symbol}</div>
+        <div class="right">{this.props.lastPrice}</div>
+        <div class="right Font-time">{lastUpdated}</div>
       </div>
     );
   }

@@ -14,10 +14,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TickerList
-          tickers={this.state.tickers}
-          endpoint={this.state.endpoint}
-        />
+        <div className="Side-bar">
+          <TickerList
+            tickers={this.state.tickers}
+            endpoint={this.state.endpoint}>
+          </TickerList>
+        </div>
+        <div>hello</div>
       </div>
     );
   }

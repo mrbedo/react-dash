@@ -2,3 +2,21 @@
   font-weight: 500;
 }
 
+.header { 
+  color: #E0E0E0;
+  justify-self: left;
+  font-size: 0.6em;
+}
+
+.right {
+  justify-self: right;
+}
+
+.symbol-container{
+  display: grid;
+  grid-template-columns: 80px 80px 100px;
+}
+
+.list-header{
+  margin: 4px 0px -15px 25px;
+}

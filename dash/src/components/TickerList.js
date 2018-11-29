@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
 import Ticker from "./Ticker";
+import "./Ticker.css";
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
 class TickerList extends Component {
   constructor() {
     super();
+
+    this.handleTickerClick = this.handleTickerClick.bind(this);
 
     this.state = {
       tickerMap: new Map()
@@ -36,6 +42,10 @@ class TickerList extends Component {
     this.socket.emit("unsubscribe", this.props.tickers);
   }
 
+  handleTickerClick(e, ticker) {
+    console.log("ticker clicked", ticker)
+  }
+
   render() {
     // askPrice:0
     // askSize:0
@@ -58,21 +68,37 @@ class TickerList extends Component {
     }
 
     const tickerItems = [];
-
+   
     tickerMap.forEach(ticker => {
       tickerItems.push(
-        <Ticker
-          key={ticker.symbol}
-          symbol={ticker.symbol}
-          securityType={ticker.securityType}
-          sector={ticker.sector}
-          lastPrice={ticker.lastSalePrice}
-          lastUpdated={ticker.lastUpdated}
-        />
+        <ListItem
+          button
+          onClick={e => this.handleTickerClick(e, ticker)}>
+          <Ticker
+            key={ticker.symbol}
+            symbol={ticker.symbol}
+            securityType={ticker.securityType}
+            sector={ticker.sector}
+            lastPrice={ticker.lastSalePrice}
+            lastUpdated={ticker.lastUpdated}>
+          </Ticker>
+        </ListItem>
       );
     });
 
-    return <ul>{tickerItems}</ul>;
+    return (
+      <div>
+        {/* Header */}
+        <div className="symbol-container list-header">
+          <div className="header">TICKER</div>
+          <div className="header right">LAST PX</div>
+          <div className="header right">UPDATED</div>
+        </div> 
+        
+        {/* List */}
+        <List component="nav">{tickerItems}</List>
+      </div>
+    );
   }
 }
 
