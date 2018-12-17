@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import TickerList from './components/TickerList';
+import TickerCompany from './components/TickerCompany';
 import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
     this.state = {
       selectedSymbol: null,
       tickers: 'aapl,fb,goog',
-      endpoint: 'https://ws-api.iextrading.com/1.0/tops'
+      urlProxy: 'https://cors-anywhere.herokuapp.com/', //For CORS
+      endpoint: 'https://ws-api.iextrading.com/1.0'
     };
   }
 
@@ -30,8 +32,13 @@ class App extends Component {
           </TickerList>
         </Grid>
 
-        <Grid>{this.state.selectedSymbol}</Grid>
-        
+        <Grid>
+          <TickerCompany
+            urlProxy={this.state.urlProxy}
+            endpoint={this.state.endpoint}
+            symbol={this.state.selectedSymbol}>
+          </TickerCompany>
+        </Grid>
       </Grid>
     );
   }

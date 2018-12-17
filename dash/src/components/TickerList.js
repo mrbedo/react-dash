@@ -18,7 +18,7 @@ class TickerList extends Component {
   }
 
   componentDidMount() {
-    this.socket = socketIOClient(this.props.endpoint);
+    this.socket = socketIOClient(`${this.props.endpoint}/tops`);
     this.socket.on("message", data => {
       //console.log(data);
       const parsedTickerData = JSON.parse(data);
