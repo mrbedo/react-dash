@@ -1,0 +1,50 @@
+[
+  {
+    "symbol": "FB",
+    "sector": "mediaentertainment",
+    "securityType": "commonstock",
+    "bidPrice": 144.7,
+    "bidSize": 100,
+    "askPrice": 144.74,
+    "askSize": 100,
+    "lastUpdated": 1545067255926,
+    "lastSalePrice": 144.71,
+    "lastSaleSize": 100,
+    "lastSaleTime": 1545067249291,
+    "volume": 639936,
+    "marketPercent": 0.08875,
+    "seq": 129793
+  },
+  {
+    "symbol": "AAPL",
+    "sector": "technologyhardwareequipment",
+    "securityType": "commonstock",
+    "bidPrice": 167.56,
+    "bidSize": 200,
+    "askPrice": 167.63,
+    "askSize": 600,
+    "lastUpdated": 1545067131111,
+    "lastSalePrice": 167.56,
+    "lastSaleSize": 85,
+    "lastSaleTime": 1545067130168,
+    "volume": 448569,
+    "marketPercent": 0.02696,
+    "seq": 215521
+  },
+  {
+    "symbol": "GOOG",
+    "sector": "mediaentertainment",
+    "securityType": "commonstock",
+    "bidPrice": 1050.13,
+    "bidSize": 100,
+    "askPrice": 0.0,
+    "askSize": 0,
+    "lastUpdated": 1545067256755,
+    "lastSalePrice": 1050.56,
+    "lastSaleSize": 73,
+    "lastSaleTime": 1545067248452,
+    "volume": 29949,
+    "marketPercent": 0.04503,
+    "seq": 26660
+  }
+]

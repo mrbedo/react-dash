@@ -1,27 +1,38 @@
-import React, { Component } from "react";
-import "./App.css";
-import TickerList from "./components/TickerList";
+import React, { Component } from 'react';
+import './styles/App.css';
+import TickerList from './components/TickerList';
+import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      tickers: "aapl,goog,fb",
-      endpoint: "https://ws-api.iextrading.com/1.0/tops"
+      selectedSymbol: null,
+      tickers: 'aapl,fb,goog',
+      endpoint: 'https://ws-api.iextrading.com/1.0/tops'
     };
+  }
+
+  onTickerSelected(ticker){
+    console.log('selected ticker:', ticker)
+    this.setState({selectedSymbol: ticker.symbol})
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="Side-bar">
+      <Grid container className='App'>
+      
+        <Grid className='Side-bar'>
           <TickerList
+            onSelectionChanged={this.onTickerSelected.bind(this)}
             tickers={this.state.tickers}
             endpoint={this.state.endpoint}>
           </TickerList>
-        </div>
-        <div>hello</div>
-      </div>
+        </Grid>
+
+        <Grid>{this.state.selectedSymbol}</Grid>
+        
+      </Grid>
     );
   }
 }

@@ -36,6 +36,14 @@ class TickerList extends Component {
       // Subscribe to topics (i.e. appl,fb,aig+)
       this.socket.emit("subscribe", this.props.tickers); //firehose
     });
+
+    this.socket.on("error", e =>{
+      console.log(e);
+    })
+
+    this.socket.on("disconnect", e => {
+      console.log(e);
+    })
   }
 
   componentWillUnmount() {
@@ -44,6 +52,7 @@ class TickerList extends Component {
 
   handleTickerClick(e, ticker) {
     console.log("ticker clicked", ticker)
+    this.props.onSelectionChanged(ticker);
   }
 
   render() {
@@ -72,10 +81,10 @@ class TickerList extends Component {
     tickerMap.forEach(ticker => {
       tickerItems.push(
         <ListItem
+          key={ticker.symbol}
           button
           onClick={e => this.handleTickerClick(e, ticker)}>
           <Ticker
-            key={ticker.symbol}
             symbol={ticker.symbol}
             securityType={ticker.securityType}
             sector={ticker.sector}
